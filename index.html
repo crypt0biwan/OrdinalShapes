@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>OrdinalShapes - by Obi</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+        
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+        
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+        
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+        
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+    
+    
+</head>
+<body>
+ 
+    <main>
+        <section class="pt-5 pb-2 text-center container">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">OrdinalShapes</h1>
+
+                    <p class="lead text-muted">
+                        A generative art project, inscribed on the ₿itcoin blockchain, which utilizes the inscription hash for the input of the script. They can contain plain shapes, circles, symmetrical shapes and glow.
+                    </p>
+
+                    <p>by Obi</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="album py-5">
+            <div class="container">
+                
+                <div id="artwork" class="row row-cols-1 row-cols-md-2 g-2">
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <footer class="text-muted py-5 bg-light">
+        <div class="container">
+            <p class="mb-0">
+                <a class="text-muted" target="_blank" href="https://twitter.com/crypt0biwan">Contact Obi on Twitter</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        const artworks = [
+            {
+                "id": 89713,
+                "inscription": "f59f1a5cf10c8b081f503b397e8e3813822c3ace68b7b601fea6ae3e8253c2fai0"
+            },
+            {
+                "id": 89822,
+                "inscription": "2665169c5817cfa027a856d5d1133a1b1889d11e8316d7f01873f6702bb3ec15i0"
+            },
+            {
+                "id": 89823,
+                "inscription": "6691f3a527481219e5e32a2fe23771dd13495c1a9c1d8a6285c144ef53eff718i0"
+            },
+            {
+                "id": 89824,
+                "inscription": "eabff6375a08745a08370556ed7c513a331bb08afdac566abcb82f13376be830i0"
+            },
+            {
+                "id": 89825,
+                "inscription": "ab04689000dfdfde70035ad699c3212bd808d850d192b0f90fb8d77cced9713ei0"
+            },
+            {
+                "id": 89828,
+                "inscription": "0b5b7411ff15e72be4f28aeeadc79a8248e28f27cd627b61c905b8e57e6e7e6ei0"
+            },
+            {
+                "id": 89829,
+                "inscription": "76da17bda4f8ad6933a0f8a553edf569843efea16795e54a51eabd018080cc79i0"
+            },
+            {
+                "id": 89830,
+                "inscription": "c7523c24722b81ea0465712dc60622cef0a85810955bcaeca62fea82d5e1518di0"
+            },
+            {
+                "id": 89831,
+                "inscription": "2dcac0a89465f827e387ea50cb7406802605ce5c32feb989d51915d32de9e28di0"
+            },
+            {
+                "id": 89832,
+                "inscription": "cddc2a73d126f1572ea1639d51c5e150163796f9885c0a696b4d3378e51b99a2i0"
+            },
+            {
+                "id": 89837,
+                "inscription": "45ac6d2b5dc13e74050f7d1d867fe6d0cced42a81dac1bd6242978f3d8b19ebbi0"
+            },
+            {
+                "id": 89839,
+                "inscription": "832e4b9ea8ad7801ac3eda0fe3faedf17903da895b7196fe32d0a643ccf59adfi0"
+            },
+            {
+                "id": 89842,
+                "inscription": "fda90ef6be1ea06e2db7cc98a6d5ca55b5de7b8cb39be1d2f805899e54f5bdf3i0"
+            },
+            {
+                "id": 90781,
+                "inscription": "cc87aa0c7cc6cf07923aeb5c84553ae202ea2de46e16cdd173904ea30622294di0"
+            },
+            {
+                "id": 90783,
+                "inscription": "cb9f5d9d3ab76a50dba0c29a37c4db541c52e462915667138e6ceace5e5b7a7ei0"
+            },
+            {
+                "id": 90784,
+                "inscription": "2514e2dbabc6c7b47584d8e00f3e54194b9e681d1b43f48e8afb03f9bd275a86i0"
+            },
+            {
+                "id": 90787,
+                "inscription": "0b1657b9b3cdff8cf3720e25540f06234dbe906c0e25d2b542e2b6279756c2cbi0"
+            },
+        ]
+        
+        let html = ``
+        let totalArtworks = 17
+        
+        artworks.forEach((artwork, i) => {
+            const { id, inscription } = artwork
+            const counter = i + 1
+
+            html += `<div class="col sm-1 mb-3">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="./img/${inscription}.png" alt="Hash ${inscription}">
+                    <div class="card-body">
+                        
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                            <a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="#">Buy on ..</a>
+                            
+                            <a class="btn btn-sm mb-2 mb-sm-0 btn-outline-primary" target="_blank" href="https://ordinals.com/inscription/${inscription}">View on ordinals.com</a>
+                            
+                            <small class="text-muted">ID: ${id}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        })
+        
+        document.getElementById('artwork').innerHTML = html
+        
+    </script>
+    
+</body>
+</html>
