@@ -75,7 +75,7 @@
 <body>
  
     <main>
-        <section class="pt-5 pb-2 text-center container">
+        <section class="pt-3 pt-sm-5 pb-2 text-center container">
             <div class="row py-lg-3">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">OrdinalShapes</h1>
@@ -84,19 +84,36 @@
                         A generative art project, inscribed on the ₿itcoin blockchain, which utilizes the inscription hash for the input of the script. They can contain plain shapes, circles, symmetrical shapes, patterns and glow.
                     </p>
 
-                    <p>by Obi</p>
+                    <p class="lead text-muted">
+                        The first 17 were already inscribed by Obi, as listed below, the remaining 52 can be minted, which makes a collection of 69 in total.
+                    </p>
                 </div>
             </div>
         </section>
         
+        <div class="container">
+            <div class="alert alert-info" role="alert">
+                The rest of the collection is ready to mint at <a href="https://generative.xyz/generative/1000207" target="_blank">Generative.xyz</a>
+            </div>
+        </div>
+
         <div class="album py-5">
             <div class="container">
+                <h4 class="text-center mb-4">First 17, part of the "100k club"</h3>
                 
-                <div id="artwork" class="row row-cols-1 row-cols-md-2 g-2">
+                <div id="artwork_1" class="row row-cols-1 row-cols-md-2 g-2">
                 </div>
             </div>
         </div>
-        
+
+        <div class="album py-5">
+            <div class="container">
+                <h4 class="text-center mb-4">Minted through generative.xyz</h3>
+                
+                <div id="artwork_2" class="row row-cols-1 row-cols-md-2 g-2">
+                </div>
+            </div>
+        </div>        
     </main>
     
     <footer class="text-muted py-5 bg-light">
@@ -108,7 +125,7 @@
     </footer>
     
     <script>
-        const artworks = [
+        const artworks_1 = [
             {
                 "id": 89713,
                 "inscription": "f59f1a5cf10c8b081f503b397e8e3813822c3ace68b7b601fea6ae3e8253c2fai0"
@@ -179,31 +196,42 @@
             },
         ]
         
-        let html = ``
-        let totalArtworks = 17
-        
-        artworks.forEach((artwork, i) => {
-            const { id, inscription } = artwork
-            const counter = i + 1
+        const artworks_2 = [
+            {
+                "id": 128705,
+                "inscription": "c6df165e671ec885c97b16fd31104e1ef1dea7a47b40ee0066f1232a595d8083i0"
+            },
+        ]
 
-            html += `<div class="col sm-1 mb-3">
-                <div class="card shadow-sm">
-                    <img class="card-img-top" src="./img/${inscription}.png" alt="Hash ${inscription}">
-                    <div class="card-body">
-                        
-                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
-                            <a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="#">Buy on ..</a>
+        const generate_overview = (artworks, target) => {
+            let html = ``
+            
+            artworks.forEach((artwork, i) => {
+                const { id, inscription } = artwork
+                const counter = i + 1
+    
+                html += `<div class="col sm-1 mb-3">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="./img/${inscription}.png" alt="Hash ${inscription}">
+                        <div class="card-body">
                             
-                            <a class="btn btn-sm mb-2 mb-sm-0 btn-outline-primary" target="_blank" href="https://ordinals.com/inscription/${inscription}">View on ordinals.com</a>
-                            
-                            <small class="text-muted">ID: ${id}</small>
+                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                                <a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="#">Buy on ..</a>
+                                
+                                <a class="btn btn-sm mb-2 mb-sm-0 btn-outline-primary" target="_blank" href="https://ordinals.com/inscription/${inscription}">View on ordinals.com</a>
+                                
+                                <small class="text-muted">ID: ${id}</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`
-        })
-        
-        document.getElementById('artwork').innerHTML = html
+                </div>`
+            })
+            
+            target.innerHTML = html
+        }
+
+        generate_overview(artworks_1, document.getElementById('artwork_1'))
+        generate_overview(artworks_2, document.getElementById('artwork_2'))
         
     </script>
     
