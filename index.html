@@ -206,9 +206,13 @@
                 "id": 128705,
                 "inscription": "c6df165e671ec885c97b16fd31104e1ef1dea7a47b40ee0066f1232a595d8083i0"
             },
+            {
+                "id": 167682,
+                "inscription": "ec7a61ed0c1e33122cf9c2a133c7878e17ae00ddf068bc9ff46b32752d9b5fa4i0"
+            }
         ]
 
-        const generate_overview = (artworks, target) => {
+        const generate_overview = (series, artworks, target) => {
             let html = ``
             
             artworks.forEach((artwork, i) => {
@@ -221,7 +225,7 @@
                         <div class="card-body">
                             
                             <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
-                                <a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="#">Buy on ..</a>
+                                ${series === 1 ? `<a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="#">Buy on ..</a>` : `<a class="btn btn-sm mb-2 mb-sm-0 btn-primary" target="_blank" href="https://generative.xyz/generative/1000207/${inscription}">View on Generative.xyz</a>`}
                                 
                                 <a class="btn btn-sm mb-2 mb-sm-0 btn-outline-primary" target="_blank" href="https://ordinals.com/inscription/${inscription}">View on ordinals.com</a>
                                 
@@ -235,8 +239,8 @@
             target.innerHTML = html
         }
 
-        generate_overview(artworks_1, document.getElementById('artwork_1'))
-        generate_overview(artworks_2, document.getElementById('artwork_2'))
+        generate_overview(1, artworks_1, document.getElementById('artwork_1'))
+        generate_overview(2, artworks_2, document.getElementById('artwork_2'))
         
     </script>
     
